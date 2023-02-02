@@ -20,10 +20,11 @@ logo_label = tk.Label(image=logo)
 logo_label.image = logo
 logo_label.grid(column=1, row=0)
 
-#instructions
+# tells the user what to do in order to use the program
 instructions = tk.Label(root, text="Select a PDF file on your computer to extract all its text", font="Raleway")
 instructions.grid(columnspan=3, column=0, row=1)
 
+#converts the pdf to a text
 def open_file():
     browse_text.set("loading...")
     file = askopenfile(parent=root, mode='rb', title="Choose a file", filetypes=[("Pdf file", "*.pdf")])
@@ -41,7 +42,7 @@ def open_file():
 
         browse_text.set("Browse")
 
-#browse button
+# the browse button that is clickable 
 browse_text = tk.StringVar()
 browse_btn = tk.Button(root, textvariable=browse_text, command=lambda:open_file(), font="Raleway", bg="#20bebe", fg="white", height=2, width=15)
 browse_text.set("Browse")
